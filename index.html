@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tomar Pedido - El Trébol</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    .producto-img {
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+    }
+    .btn-group-category button.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="container py-3">
+    <img src="logo.jpg" alt="Logo El Trébol" style="max-width: 150px;" class="mb-3 d-block mx-auto" />
+    <h2 class="text-center text-success">Menú - Pedidos</h2>
+
+    <div class="btn-group btn-group-category d-flex flex-wrap justify-content-center mb-4" role="group">
+      <button class="btn btn-outline-success me-2 mb-2 active" data-cat="all">Todos</button>
+      <button class="btn btn-outline-success me-2 mb-2" data-cat="Entradas">Entradas</button>
+      <button class="btn btn-outline-success me-2 mb-2" data-cat="Platos Principales">Platos</button>
+      <button class="btn btn-outline-success me-2 mb-2" data-cat="Pastas">Pastas</button>
+      <button class="btn btn-outline-success me-2 mb-2" data-cat="Arroces">Arroces</button>
+      <button class="btn btn-outline-success me-2 mb-2" data-cat="Bebidas">Bebidas</button>
+      <button class="btn btn-outline-success mb-2" data-cat="Postres">Postres</button>
+    </div>
+
+    <div class="row" id="menuContainer"></div>
+  </div>
+
+  <button class="btn btn-success cart-btn" onclick="mostrarCarrito()">
+    <i class="bi bi-cart4 me-1"></i> Ver Pedido (<span id="cartCount">0</span>)
+  </button>
+
+  <div class="modal fade" id="carritoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pedido Actual</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group mb-3" id="carritoLista"></ul>
+          <div class="row">
+            <div class="col-md-6">
+              <label>Nombre del mozo</label>
+              <input type="text" id="mozo" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label>Número de mesa</label>
+              <input type="number" id="mesa" class="form-control" required>
+            </div>
+          </div>
+          <div class="mt-3">
+            <label>Comentario adicional</label>
+            <textarea id="comentario" class="form-control" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-success" onclick="enviarPedido()">Enviar por WhatsApp</button>
+          <button class="btn btn-danger me-auto" onclick="vaciarCarrito()">Vaciar Pedido</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+</body>
+</html>
