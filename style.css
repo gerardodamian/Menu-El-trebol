@@ -11,7 +11,38 @@
     padding: 12px 20px;
     font-size: 1.1rem;
   }
+  .saved-orders-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .saved-orders-btn {
+      bottom: 20px;
+      right: 160px;
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
+    .cart-btn {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
+  }
+  
   .btn-group-category button.active {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #198754 !important;
+    color: white !important;
+    border-color: #198754 !important;
+    font-weight: bold;
+  }
+  
+  .btn-group-category button.active:hover {
+    background-color: #157347 !important;
+    border-color: #146c43 !important;
+    color: white !important;
   }
